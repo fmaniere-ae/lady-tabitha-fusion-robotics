@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="app">Chargement...</div>
+    
+    <script>
+        // Charger le contenu depuis le fichier markdown
+        async function loadContent() {
+            try {
+                const response = await fetch('/content/pages/home.md');
+                const text = await response.text();
+                
+                // Parser le frontmatter
+                const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+                if (match) {
+                    const frontmatter = parseYAML(match[1]);
+                    const content = match[2];
+                    renderPage(frontmatter, content);
+                }
+            } catch (error) {
+                console.error('Erreur de chargement:', error);
+            }
+        }
+
+        // Parser YAML simple
+        function parseYAML(yaml) {
+            const obj = {};
+            const lines = yaml.split('\n');
+            let currentKey = null;
+            
+            lines.forEach(line => {
+                if (line.includes(':')) {
+                    const [key, ...valueParts] = line.split(':');
+                    const value = valueParts.join(':').trim();
+                    currentKey = key.trim();
+                    
+                    if (value.startsWith('"') || value.startsWith("'")) {
+                        obj[currentKey] = value.slice(1, -1);
+                    } else if (value) {
+                        obj[currentKey] = value;
+                    } else {
+                        obj[currentKey] = {};
+                    }
+                }
+            });
+            
+            return obj;
+        }
+
+        // Rendre la page
+        function renderPage(data, content) {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-4">${data.title || 'Sans titre'}</h1>
+                    <div class="prose">${content}</div>
+                </div>
+            `;
+        }
+
+        // Charger au démarrage
+        loadContent();
+    </script>
+</body>
+</html>

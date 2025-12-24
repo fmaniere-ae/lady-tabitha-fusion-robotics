@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: fmaniere-ae/lady-tabiyha-fusion-robotics
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'fr'
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Accueil"
+        name: "home"
+        file: "content/pages/home.md"
+        fields:
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Contenu", name: "body", widget: "markdown"}
