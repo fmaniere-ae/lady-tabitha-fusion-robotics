@@ -242,7 +242,7 @@ function generateHTML(data) {
 
 // Main
 try {
-    const { data } = loadContent('./content/pages/home.md');
+    const { data } = loadContent('./public/content/pages/home.md');
     const html = generateHTML(data);
     fs.writeFileSync('./public/index.html', html);
     console.log('✅ index.html généré avec succès !');
