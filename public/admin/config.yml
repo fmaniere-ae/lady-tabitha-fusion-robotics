@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: fmaniere-ae/lady-tabiyha-fusion-robotics
+  repo: fmaniere-ae/lady-tabitha-fusion-robotics
   branch: main
 
 media_folder: "images/uploads"
