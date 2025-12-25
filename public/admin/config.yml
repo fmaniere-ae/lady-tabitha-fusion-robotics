@@ -14,7 +14,7 @@ collections:
     files:
       - label: "Accueil"
         name: "home"
-        file: "content/pages/home.md"
+        file: "public/content/pages/home.md"
         fields:
           - {label: "Titre", name: "title", widget: "string"}
           - {label: "Contenu", name: "body", widget: "markdown"}
