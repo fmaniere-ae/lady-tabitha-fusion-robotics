@@ -1,9 +1,17 @@
+local_backend: true
+
+# backend:
+#   name: github
+#   repo: fmaniere-ae/lady-tabitha-fusion-robotics
+#   branch: main
+
 backend:
-  name: github
-  repo: fmaniere-ae/lady-tabitha-fusion-robotics
+  name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
+publish_mode: editorial_workflow
+
+media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 locale: 'fr'
@@ -16,5 +24,5 @@ collections:
         name: "home"
         file: "public/content/pages/home.md"
         fields:
-          - {label: "Titre", name: "title", widget: "string"}
-          - {label: "Contenu", name: "body", widget: "markdown"}
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }
