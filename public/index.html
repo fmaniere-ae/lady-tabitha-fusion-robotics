@@ -7,12 +7,15 @@
 
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-    const tokenMatch = window.location.hash.match(/#invite_token=(.+)/);
-    if (tokenMatch) {
-        const token = tokenMatch[1];
-        // Redirige vers /admin avec le token
-        window.location.href = "/admin/#invite_token=${token}";
-    }
+    (function () {
+        const hash = window.location.hash || '';
+        const hasInvite = hash.includes('invite_token=');
+        const isAdmin = window.location.pathname.startsWith('/admin');
+
+        if (hasInvite && !isAdmin) {
+        window.location.replace('/admin/' + hash);
+        }
+    })();
     </script>
 
 
