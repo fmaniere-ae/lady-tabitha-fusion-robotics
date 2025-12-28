@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/fmaniere-ae/lady-tabitha-fusion-robotics/issues"
   },
-  "homepage": "https://github.com/fmaniere-ae/lady-tabitha-fusion-robotics#readme"
+  "homepage": "https://github.com/fmaniere-ae/lady-tabitha-fusion-robotics#readme",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.1"
+  }
 }
