@@ -1,10 +1,5 @@
 local_backend: true
 
-# backend:
-#   name: github
-#   repo: fmaniere-ae/lady-tabitha-fusion-robotics
-#   branch: main
-
 backend:
   name: git-gateway
   branch: main
@@ -14,7 +9,7 @@ publish_mode: editorial_workflow
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
-locale: 'fr'
+locale: "fr"
 
 collections:
   - name: "pages"
@@ -23,8 +18,11 @@ collections:
       - name: "home"
         label: "Accueil"
         file: "public/content/pages/home.md"
+
         fields:
-          - { label: "Titre", name: "title", widget: "string" }
+          - label: "Titre"
+            name: "title"
+            widget: "string"
 
           - label: "Sections"
             name: "sections"
@@ -39,7 +37,7 @@ collections:
                   - { label: "Présentation", name: "presentation", widget: "text" }
                   - { label: "Vision", name: "vision", widget: "text" }
 
-              - label: "Pourquoi inscrire"
+              - label: "Pourquoi inscrire votre enfant"
                 name: "benefits"
                 widget: "object"
                 fields:
@@ -47,9 +45,10 @@ collections:
                   - label: "Bénéfices"
                     name: "benefits"
                     widget: "list"
-                    field: { label: "Bénéfice", name: "item", widget: "string" }
-                  - { label: "Texte bouton", name: "cta_text", widget: "string" }
-                  - { label: "Lien bouton", name: "cta_link", widget: "string" }
+                    field:
+                      { label: "Bénéfice", name: "item", widget: "string" }
+                  - { label: "Texte du bouton", name: "cta_text", widget: "string" }
+                  - { label: "Lien du bouton", name: "cta_link", widget: "string" }
 
               - label: "Programme"
                 name: "program"
@@ -71,80 +70,3 @@ collections:
                   - { label: "Titre", name: "title", widget: "string" }
                   - { label: "Organisation", name: "organisation", widget: "text" }
                   - { label: "Sécurité & matériel", name: "safety", widget: "text" }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - name: "home"
-        label: "Accueil"
-        file: "public/content/pages/home.md"
-        fields:
-          - { label: "Titre", name: "title", widget: "string" }
-
-          - label: "Sections"
-            name: "sections"
-            widget: "list"
-            fields:
-              - { label: "ID", name: "id", widget: "string" }
-              - { label: "Titre", name: "title", widget: "string" }
-
-              - label: "Blocs"
-                name: "blocks"
-                widget: "list"
-                types:
-
-                  - label: "Texte"
-                    name: "text"
-                    widget: "object"
-                    fields:
-                      - { label: "Titre", name: "title", widget: "string" }
-                      - { label: "Contenu", name: "content", widget: "markdown" }
-
-                  - label: "Call to action"
-                    name: "cta"
-                    widget: "object"
-                    fields:
-                      - { label: "Titre", name: "title", widget: "string" }
-                      - { label: "Texte bouton", name: "button_label", widget: "string" }
-                      - { label: "Lien", name: "button_link", widget: "string" }
-
-                  - label: "Programme"
-                    name: "program"
-                    widget: "object"
-                    fields:
-                      - { label: "Niveau", name: "level", widget: "string" }
-                      - { label: "Parcours", name: "parcours", widget: "markdown" }
-                      - { label: "Projets", name: "projets", widget: "markdown" }
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "Accueil"
-        name: "home"
-        file: "public/content/pages/home.md"
-        fields:
-          - label: "Titre"
-            name: "title"
-            widget: "string"
-
-          - label: "Blocs"
-            name: "blocks"
-            widget: "list"
-            types:
-              - label: "Texte"
-                name: "text"
-                widget: "object"
-                fields:
-                  - { label: "Contenu", name: "body", widget: "markdown" }
-
-              - label: "Image"
-                name: "image"
-                widget: "object"
-                fields:
-                  - { label: "Image", name: "src", widget: "image" }
-                  - { label: "Alt", name: "alt", widget: "string", required: false }
-
-              - label: "Section"
-                name: "section"
-                widget: "object"
-                fields:
-                  - { label: "Titre", name: "title", widget: "string" }
-                  - { label: "Contenu", name: "body", widget: "markdown" }
